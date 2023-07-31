@@ -1,5 +1,123 @@
-// The data dictionary provided
-const data = {"seating_no": ["arabic_name", "total_degree", "student_case", "student_case_desc", "c_flage"], "1000500": ["\u0627\u062d\u0645\u062f \u0627\u0644\u0633\u064a\u062f \u0639\u0628\u062f\u0627\u0644\u0645\u0627\u0644\u0643 \u0627\u0644\u0645\u062f\u0646\u064a \u0627\u0644\u0634\u064a\u062e", 273.5, 1, "\u0646\u0627\u062c\u062d \u062f\u0648\u0631 \u0623\u0648\u0644", 3], "1000501": ["\u0627\u062d\u0645\u062f \u062e\u0627\u0644\u062f \u0632\u064a\u0646 \u0627\u0644\u0639\u0627\u0628\u062f\u064a\u0646 \u062d\u0633\u0646", 547.150024414063, 1, "\u0646\u0627\u062c\u062d \u062f\u0648\u0631 \u0623\u0648\u0644", 3], "1000502": ["\u0628\u0627\u0633\u0644 \u0645\u062d\u0645\u062f \u0633\u0639\u064a\u062f \u0637\u0646\u0637\u0627\u0648\u064a \u0639\u0628\u062f\u0627\u0644\u062c\u0648\u0627\u062f", 608.239990234375, 1, "\u0646\u0627\u062c\u062d \u062f\u0648\u0631 \u0623\u0648\u0644", 3], "1000503": ["\u062c\u0648\u0646\u0627\u062b\u0627\u0646 \u0645\u0627\u062c\u062f \u0645\u0644\u0627\u0643 \u062a\u0648\u0645\u0627\u0633", 626.710021972656, 1, "\u0646\u0627\u062c\u062d \u062f\u0648\u0631 \u0623\u0648\u0644", 3], "1000504": ["\u0631\u0634\u0627\u062f \u0639\u0628\u062f\u0627\u0644\u062a\u0648\u0627\u0628 \u0631\u0634\u0627\u062f \u0639\u0628\u062f\u0627\u0644\u062a\u0648\u0627\u0628", 632.809997558594, 1, "\u0646\u0627\u062c\u062d \u062f\u0648\u0631 \u0623\u0648\u0644", 3], "1000505": ["\u0639\u0628\u062f\u0627\u0644\u063a\u0641\u0627\u0631 \u0645\u062d\u0645\u062f \u0645\u062d\u0645\u0648\u062f \u0639\u0628\u062f\u0627\u0644\u063a\u0641\u0627\u0631", 618.830017089844, 1, "\u0646\u0627\u062c\u062d \u062f\u0648\u0631 \u0623\u0648\u0644", 3], "1000506": ["\u0639\u0645\u0631 \u0645\u0627\u0647\u0631 \u0628\u0634\u064a\u0631 \u0645\u0627\u0647\u0631 \u062f\u0627\u0648\u062f", 595.679992675781, 1, "\u0646\u0627\u062c\u062d \u062f\u0648\u0631 \u0623\u0648\u0644", 3], "1000507": ["\u0643\u0631\u064a\u0645 \u0645\u062d\u0645\u062f \u0627\u0628\u0631\u0627\u0647\u064a\u0645 \u0627\u0628\u0631\u0627\u0647\u064a\u0645 \u0639\u0628\u062f\u0627\u0644\u0646\u0628\u064a", 627.02001953125, 1, "\u0646\u0627\u062c\u062d \u062f\u0648\u0631 \u0623\u0648\u0644", 3], "1000508": ["\u0645\u0627\u0632\u0646 \u062d\u0633\u0646 \u062a\u0645\u0627\u0645 \u062d\u0633\u0646 \u062a\u0645\u0627\u0645 \u062d\u0633\u0646", 624.559997558594, 1, "\u0646\u0627\u062c\u062d \u062f\u0648\u0631 \u0623\u0648\u0644", 3], "1000509": ["\u0645\u062d\u0645\u062f \u0627\u062d\u0645\u062f \u0639\u0628\u062f\u0627\u0644\u0641\u062a\u0627\u062d \u062d\u0633\u064a\u0646", 575.940002441406, 1, "\u0646\u0627\u062c\u062d \u062f\u0648\u0631 \u0623\u0648\u0644", 3]};
+// function initClient() {
+//     // Initialize the client with your API key
+//     gapi.client.init({
+//       apiKey: apiKey
+//     }).then(function() {
+//       console.log('Google Sheets API initialized');
+//     }, function(error) {
+//       console.error('Error initializing Google Sheets API:', error);
+//     });
+//   }
+
+
+    // Add event listener to the search input field
+    document.getElementById('searchInput').addEventListener('keyup', function(event) {
+        if (event.key === 'Enter') {
+          searchStudent();
+        }
+    });
+      
+//     // Initialize the client with your API key
+//     function initClient() {
+//         gapi.client.init({
+//           apiKey: apiKey
+//         }).then(function() {
+//             console.log('Google Sheets API initialized');
+//             // Call the searchStudent function here
+//             searchStudent();
+//           }, function(error) {
+//             console.error('Error initializing Google Sheets API:', error);
+//           });
+//         }
+//       // Load the Google Sheets API
+// gapi.load('client', initClient);
+      
+// Function to search for a student by seating number or name
+// function searchStudent() {
+//     const searchInput = document.getElementById('searchInput').value.trim();
+//     const searchResult = document.getElementById('searchResult');
+//     searchResult.innerHTML = '';
+  
+    
+  
+//     gapi.client.sheets.spreadsheets.values.get({
+//         spreadsheetId: spreadsheetId,
+//         range: range,
+//       }).then(function(response) {
+//         const data = response.result.values;
+//         const matchedStudents = data.filter(row => row[0].includes(searchInput));
+
+//         if (matchedStudents.length > 0) {
+//           const table = document.createElement('table');
+//           table.classList.add('table', 'table-bordered', 'text-center');
+//           const tableHeader = table.createTHead();
+//           const tableBody = table.createTBody();
+
+//           // Create table header row
+//           const headerRow = tableHeader.insertRow();
+//           const headers = {
+//             0: "اسم الطالب باللغة العربية",
+//             1: "الدرجة",
+//             2: "كود الحالة",
+//             3: "الحالة",
+//             4: "التعيين"
+//           };
+
+//           for (const key in headers) {
+//             const th = document.createElement('th');
+//             th.scope = 'col';
+//             th.innerText = headers[key];
+//             th.classList.add('align-middle');
+//             headerRow.appendChild(th);
+//           }
+
+//           // Create table data rows for matched students
+//           for (const studentData of matchedStudents) {
+//             const dataRow = tableBody.insertRow();
+//             for (let i = 0; i < studentData.length; i++) {
+//               const td = document.createElement('td');
+//               if (i === 1) {
+//                 const totalDegree = parseFloat(studentData[i]);
+//                 td.innerText = totalDegree.toFixed(2);
+//               } else {
+//                 td.innerText = studentData[i];
+//               }
+//               td.classList.add('align-middle');
+//               dataRow.appendChild(td);
+//             }
+//           }
+
+//           // Append the table to the searchResult div
+//           searchResult.appendChild(table);
+//         } else {
+//           searchResult.innerHTML = '<p class="text-danger">No matching students found.</p>';
+//         }
+//       }, function(error) {
+//         console.error('Error fetching data from Google Sheets:', error);
+//       });
+//     }
+
+
+const data = {
+    "seating_no": ["arabic_name", "total_degree", "student_case", "student_case_desc", "c_flage"],
+    "1000500": ["أحمد السيد عبدالمالك المديني الشيخ", 636.25, 1, "ناجح دور أول", 3],
+};
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
