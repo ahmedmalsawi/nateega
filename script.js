@@ -98,10 +98,10 @@
 //     }
 
 
-const data = {
-    "seating_no": ["arabic_name", "total_degree", "student_case", "student_case_desc", "c_flage"],
-    "1000500": ["أحمد السيد عبدالمالك المديني الشيخ", 636.25, 1, "ناجح دور أول", 3],
-};
+// const data = {
+//     "seating_no": ["arabic_name", "total_degree", "student_case", "student_case_desc", "c_flage"],
+//     "1000500": ["أحمد السيد عبدالمالك المديني الشيخ", 636.25, 1, "ناجح دور أول", 3],
+// };
 
 
 
