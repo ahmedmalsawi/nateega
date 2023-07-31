@@ -128,7 +128,12 @@ const totalDegreeMax = 410; // Maximum total_degree score
 function calculatePercentage(score) {
   return ((score / totalDegreeMax) * 100).toFixed(2);
 }
-
+    // Function to trigger when data.js has finished loading
+    function onDataLoaded() {
+      console.log("Data is loaded");
+      // Call the searchStudent function when data.js is loaded
+      searchStudent();
+    }
 // Function to search for a student by seating number or name
 function searchStudent() {
   const searchInput = document.getElementById('searchInput').value.trim(); // Trim any leading/trailing spaces
